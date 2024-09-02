@@ -1,5 +1,11 @@
-from django.urls import path
+from django.urls import path,include
+from api.views import CompanyViewSet
+from rest_framework import routers
+
+router=routers.DefaultRouter()
+router.register(r'companies',CompanyViewSet)
 
 urlpatterns = [
-    path(''),
+    path('',include(router.urls)),
+
 ]
